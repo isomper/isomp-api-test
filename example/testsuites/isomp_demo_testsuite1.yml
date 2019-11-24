@@ -1,0 +1,18 @@
+
+config:
+    name: "demo isomp testsuite"
+    base_url: ${ENV(URL)}
+
+testcases:
+-
+    name: 关联参数 & 直接指定参数列表
+    testcase: testcases/check_username_password_testcase1.yml
+    variables:
+        userName: '123'
+        passWord: '123'
+    parameters:
+#        userName-passWord: 
+#            - ['admin', 'admin']
+#            - ['a123', '1234'] 
+#         userName-passWord: ${P(data/user-pwd.csv)}
+         userName-passWord: ${get_userName_passWord()}

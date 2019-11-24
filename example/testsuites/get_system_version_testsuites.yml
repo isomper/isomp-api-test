@@ -1,0 +1,8 @@
+config:
+    name: testsuites demo
+    base_url: https://172.16.16.50
+
+testcases:
+-
+    name: 测试用例1：获取系统版本.
+    testcase: testcases/get_system_version_testcase.yml

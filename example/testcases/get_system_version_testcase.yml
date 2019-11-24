@@ -1,0 +1,10 @@
+config:
+    name: demo testsuite and check result
+    base_url: https://172.16.16.50/
+
+teststeps:
+-
+    name: 获取系统版本  get-system-version
+    api: api/get_system_version.yml
+        
+

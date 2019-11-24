@@ -1,0 +1,19 @@
+name: 获取系统版本
+base_url: ${ENV(URL)}
+variables: 
+    expectd_status_code: 200
+#times: 2
+request:
+    url: /fort/system_SXF/get_system_version 
+    method: POST
+    verify: false
+validate:
+    - eq: ["status_code", $expectd_status_code]
+    - eq: [content.code, success]
+    - eq: [content.systemVersion.systemVersion, 3.0.5]
+    - eq: [content.systemVersion.versionMirror, 1.0.1]
+    - eq: [content.systemVersion.version,V3.0]
+#setup_hooks:
+#    - ${hook_print(setup)}
+#teardown_hooks:
+#    - ${hook_print(teardown)}
