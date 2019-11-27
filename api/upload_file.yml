@@ -1,0 +1,26 @@
+name: 上传升级包
+base_url: ${ENV(URL)}
+variables: 
+    expectd_status_code: 200
+    filePath: C:\apitest\data\Universal_OSMv3.0_20190825
+    getFile: ${get_file($filePath)}
+    random: ${get_random()}
+    md5: ${get_md5_value($random)}
+#times: 2
+request:
+    url: /cssp/v1/app/upload_file
+    method: POST
+    verify: false
+    params:
+        md5: $md5
+        random: $random
+    files:
+         #file: [Universal_OSMv3.0_2019082, 'open(/root/isomp-tx-apitest/data/Universal_OSMv3.0_2019082, rb)','text/plain']
+        file: [Universal_OSMv3.0_20190825, $getFile, 'application/octet-stream']
+validate:
+    - eq: ["status_code", $expectd_status_code]
+    - eq: [content.code, 0]
+    - contains: [content.message, success]
+output:
+    random
+    md5
