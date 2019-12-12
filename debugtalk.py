@@ -60,8 +60,6 @@ def md5_encode(md5_random):
 #返回md5值和随机数
 def get_md5_value(random_num):
 
-    salt = "xded+=xdee239sdd"
-
     md5_val = (salt + random_num).encode('utf-8')
 
     md5_value = md5_encode(md5_val)
