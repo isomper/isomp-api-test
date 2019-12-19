@@ -6,7 +6,7 @@ variables:
     getFile: ${get_file($filePath)}
     random: ${get_random()}
     md5: ${get_md5_value($random)}
-times: 2
+#times: 2
 request:
     url: /cssp/v1/app/upload_file
     method: POST
